@@ -1,5 +1,5 @@
 sudo: required
-language: bash
+language: generic
 
 services:
   - docker
@@ -7,7 +7,7 @@ services:
 before_install:
   - docker build -t levmichael3/react-test-1 -f ./client/Dockerfile.dev ./client
 
-scripts:
+script:
   - docker run levmichael3/react-test-1 npm test -- --coverage
 
 after_success:
