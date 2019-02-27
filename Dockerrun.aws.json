@@ -1,0 +1,10 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "levmichael3/udemy_complex-client:10",
+      "hostname": "client"
+    }
+  ]
+}
