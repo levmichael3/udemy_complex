@@ -11,12 +11,12 @@ script:
   - docker run levmichael3/react-test-1 npm test -- --coverage
 
 after_success:
-  - docker build -t levmichael3/udemy_complex-client:"$TRAVIS_PULL_REQUEST_BRANCH"_"$TRAVIS_BUILD_NUMBER"   -f ./client/Dockerfile.prod ./client
-  - docker build -t levmichael3/udemy_complex-nginx:"$TRAVIS_PULL_REQUEST_BRANCH"_"$TRAVIS_BUILD_NUMBER"   -f ./nginx/Dockerfile.prod  ./nginx
-  - docker build -t levmichael3/udemy_complex-server:"$TRAVIS_PULL_REQUEST_BRANCH"_"$TRAVIS_BUILD_NUMBER"  -f ./server/Dockerfile.prod ./server
-  - docker build -t levmichael3/udemy_complex-worker:"$TRAVIS_PULL_REQUEST_BRANCH"_"$TRAVIS_BUILD_NUMBER"  -f ./worker/Dockerfile.prod ./worker
+  - docker build -t levmichael3/udemy_complex-client:"$TRAVIS_BUILD_NUMBER"   -f ./client/Dockerfile.prod ./client
+  - docker build -t levmichael3/udemy_complex-nginx:"$TRAVIS_BUILD_NUMBER"   -f ./nginx/Dockerfile.prod  ./nginx
+  - docker build -t levmichael3/udemy_complex-server:"$TRAVIS_BUILD_NUMBER"  -f ./server/Dockerfile.prod ./server
+  - docker build -t levmichael3/udemy_complex-worker:"$TRAVIS_BUILD_NUMBER"  -f ./worker/Dockerfile.prod ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push levmichael3/udemy_complex-client:"$TRAVIS_PULL_REQUEST_BRANCH"_"$TRAVIS_BUILD_NUMBER"
-  - docker push levmichael3/udemy_complex-nginx:"$TRAVIS_PULL_REQUEST_BRANCH"_"$TRAVIS_BUILD_NUMBER"
-  - docker push levmichael3/udemy_complex-server:"$TRAVIS_PULL_REQUEST_BRANCH"_"$TRAVIS_BUILD_NUMBER"
-  - docker push levmichael3/udemy_complex-worker:"$TRAVIS_PULL_REQUEST_BRANCH"_"$TRAVIS_BUILD_NUMBER"
+  - docker push levmichael3/udemy_complex-client:"$TRAVIS_BUILD_NUMBER"
+  - docker push levmichael3/udemy_complex-nginx:"$TRAVIS_BUILD_NUMBER"
+  - docker push levmichael3/udemy_complex-server:"$TRAVIS_BUILD_NUMBER"
+  - docker push levmichael3/udemy_complex-worker:"$TRAVIS_BUILD_NUMBER"
