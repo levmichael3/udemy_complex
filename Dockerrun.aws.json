@@ -22,7 +22,14 @@
     {
       "name": "nginx",
       "image": "levmichael3/udemy_complex-nginx:10",
-      "essential": true
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
     }
   ]
 }
