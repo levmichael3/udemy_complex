@@ -1,0 +1,22 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t levmichael3/react-test-1 -f ./client/Dockerfile.dev ./client
+
+scripts:
+  - docker run levmichael3/react-test-1 npm test -- --coverage
+
+after_success:
+  - docker build -t levmichael3/udemy_complex-react   ./client
+  - docker build -t levmichael3/udemy_complex-nginx   ./nginx
+  - docker build -t levmichael3/udemy_complex-server  ./server
+  - docker build -t levmichael3/udemy_complex-worker  ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push to DockerHub
+  - docker push levmichael3/udemy_complex-react
+  - docker push levmichael3/udemy_complex-nginx
+  - docker push levmichael3/udemy_complex-server
+  - docker push levmichael3/udemy_complex-worker
