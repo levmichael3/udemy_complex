@@ -11,12 +11,12 @@ script:
   - docker run levmichael3/react-test-1 npm test -- --coverage
 
 after_success:
-  - docker build -t levmichael3/udemy_complex-react   -f ./client/Dockerfile.prod ./client
-  - docker build -t levmichael3/udemy_complex-nginx   -f ./nginx/Dockerfile.prod  ./nginx
-  - docker build -t levmichael3/udemy_complex-server  -f ./server/Dockerfile.prod ./server
-  - docker build -t levmichael3/udemy_complex-worker  -f ./worker/Dockerfile.prod ./worker
+  - docker build -t levmichael3/udemy_complex-react:"$TRAVIS_BUILD_ID"   -f ./client/Dockerfile.prod ./client
+  - docker build -t levmichael3/udemy_complex-nginx:"$TRAVIS_BUILD_ID"   -f ./nginx/Dockerfile.prod  ./nginx
+  - docker build -t levmichael3/udemy_complex-server:"$TRAVIS_BUILD_ID"  -f ./server/Dockerfile.prod ./server
+  - docker build -t levmichael3/udemy_complex-worker:"$TRAVIS_BUILD_ID"  -f ./worker/Dockerfile.prod ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push levmichael3/udemy_complex-react
-  - docker push levmichael3/udemy_complex-nginx
-  - docker push levmichael3/udemy_complex-server
-  - docker push levmichael3/udemy_complex-worker
+  - docker push levmichael3/udemy_complex-react:"$TRAVIS_BUILD_ID"
+  - docker push levmichael3/udemy_complex-nginx:"$TRAVIS_BUILD_ID"
+  - docker push levmichael3/udemy_complex-server:"$TRAVIS_BUILD_ID"
+  - docker push levmichael3/udemy_complex-worker:"$TRAVIS_BUILD_ID"
