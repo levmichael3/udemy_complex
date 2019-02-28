@@ -27,7 +27,7 @@ deploy:
   app: "udemy_complex"
   env: "UdemyComplex-Env"
   bucket_name: "elasticbeanstalk-eu-west-1-501540795480"
-  bucket_path: "docker_udemy"
+  bucket_path: "udemy_complex"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
