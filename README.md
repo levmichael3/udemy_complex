@@ -1,3 +1,3 @@
 # udemy_complex
 
-https://travis-ci.org/levmichael3/udemy_complex.svg?branch=master
+[![Build Status](https://travis-ci.org/levmichael3/udemy_complex.svg?branch=master)](https://travis-ci.org/levmichael3/udemy_complex)
