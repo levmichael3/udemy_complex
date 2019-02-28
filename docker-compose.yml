@@ -8,10 +8,10 @@ services:
   api:
     build:
       dockerfile: Dockerfile.prod
-      context: ./udemy_complex/server
+      context: ./server
     volumes:
       - /app/node_modules
-      - ./udemy_complex/server:/app
+      - ./server:/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -23,24 +23,24 @@ services:
   client:
     build:
       dockerfile: Dockerfile.prod
-      context: ./udemy_complex/client
+      context: ./client
     volumes:
       - /app/node_modules
-      - ./udemy_complex/client:/app
+      - ./client:/app
   worker:
     build:
       dockerfile: Dockerfile.prod
-      context: ./udemy_complex/worker
+      context: ./worker
     volumes:
       - /app/node_modules
-      - ./udemy_complex/worker:/app
+      - ./worker:/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
   nginx:
     build:
       dockerfile: Dockerfile.prod
-      context: ./udemy_complex/nginx
+      context: ./nginx
     restart: always
     ports:
       - "8098:80"
