@@ -11,12 +11,35 @@ script:
   - docker run levmichael3/react-test-1 npm test -- --coverage
 
 after_success:
-  - docker build -t levmichael3/udemy_complex-react:"$TRAVIS_BUILD_NUMBER"   -f ./client/Dockerfile.prod ./client
+  - docker build -t levmichael3/udemy_complex-client:"$TRAVIS_BUILD_NUMBER"   -f ./client/Dockerfile.prod ./client
   - docker build -t levmichael3/udemy_complex-nginx:"$TRAVIS_BUILD_NUMBER"   -f ./nginx/Dockerfile.prod  ./nginx
   - docker build -t levmichael3/udemy_complex-server:"$TRAVIS_BUILD_NUMBER"  -f ./server/Dockerfile.prod ./server
   - docker build -t levmichael3/udemy_complex-worker:"$TRAVIS_BUILD_NUMBER"  -f ./worker/Dockerfile.prod ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push levmichael3/udemy_complex-react:"$TRAVIS_BUILD_NUMBER"
+  - docker push levmichael3/udemy_complex-client:"$TRAVIS_BUILD_NUMBER"
   - docker push levmichael3/udemy_complex-nginx:"$TRAVIS_BUILD_NUMBER"
   - docker push levmichael3/udemy_complex-server:"$TRAVIS_BUILD_NUMBER"
   - docker push levmichael3/udemy_complex-worker:"$TRAVIS_BUILD_NUMBER"
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "udemy_complex"
+  env: "UdemyComplex-Env"
+  bucket_name: "elasticbeanstalk-eu-west-1-501540795480"
+  bucket_path: "udemy_complex"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
+notifications:
+  webhooks: https://www.travisbuddy.com/
+  email:
+    recipients:
+      - levmichael3@gmail.com
+
+    # change is when the repo status goes from pass to fail or vice versa
+    on_success: change
+    on_failure: always

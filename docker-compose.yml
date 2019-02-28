@@ -17,7 +17,7 @@ services:
       - REDIS_PORT=6379
       - POSTGRES_USER=postgres
       - PGHOST=postgres
-      - POSTGRES_DB=postgres.prod
+      - POSTGRES_DB=postgresProd
       - POSTGRES_PASSWORD=postgres_password
       - PGPORT=5432
   client:

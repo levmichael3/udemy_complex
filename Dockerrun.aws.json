@@ -1,0 +1,35 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "levmichael3/udemy_complex-client:10",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "levmichael3/udemy_complex-server:10",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "levmichael3/udemy_complex-worker:10",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "levmichael3/udemy_complex-nginx:10",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
