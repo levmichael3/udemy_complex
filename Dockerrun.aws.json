@@ -5,24 +5,29 @@
       "name": "client",
       "image": "levmichael3/udemy_complex-client:10",
       "hostname": "client",
+      "memory": 128,
+
       "essential": false
     },
     {
       "name": "server",
       "image": "levmichael3/udemy_complex-server:10",
       "hostname": "api",
+      "memory": 128,
       "essential": false
     },
     {
       "name": "worker",
       "image": "levmichael3/udemy_complex-worker:10",
       "hostname": "worker",
+      "memory": 128,
       "essential": false
     },
     {
       "name": "nginx",
       "image": "levmichael3/udemy_complex-nginx:10",
       "essential": true,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
