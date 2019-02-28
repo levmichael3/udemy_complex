@@ -21,6 +21,19 @@ after_success:
   - docker push levmichael3/udemy_complex-server:"$TRAVIS_BUILD_NUMBER"
   - docker push levmichael3/udemy_complex-worker:"$TRAVIS_BUILD_NUMBER"
 
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "udemy_complex"
+  env: "UdemyComplex-Env"
+  bucket_name: "elasticbeanstalk-eu-west-1-501540795480"
+  bucket_path: "docker_udemy"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
 notifications:
   webhooks: https://www.travisbuddy.com/
   email:
