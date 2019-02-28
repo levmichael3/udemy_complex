@@ -1,5 +1,3 @@
-# udemy_complex
-
-[![](https://api.gh-polls.com/poll/01D4SK9CSSBC4ZNMQGMDV9YGQZ/sample a)](https://api.gh-polls.com/poll/01D4SK9CSSBC4ZNMQGMDV9YGQZ/a/vote)
-[![](https://api.gh-polls.com/poll/01D4SK9CSSBC4ZNMQGMDV9YGQZ/sample b)](https://api.gh-polls.com/poll/01D4SK9CSSBC4ZNMQGMDV9YGQZ/b/vote)
-[![](https://api.gh-polls.com/poll/01D4SK9CSSBC4ZNMQGMDV9YGQZ/sample c)](https://api.gh-polls.com/poll/01D4SK9CSSBC4ZNMQGMDV9YGQZ/c/vote)
+[![](https://api.gh-polls.com/poll/01D4SM0V98AG1FTGHEMGWNKGAS/Option%20A)](https://api.gh-polls.com/poll/01D4SM0V98AG1FTGHEMGWNKGAS/Option%20A/vote)
+[![](https://api.gh-polls.com/poll/01D4SM0V98AG1FTGHEMGWNKGAS/Option%20B)](https://api.gh-polls.com/poll/01D4SM0V98AG1FTGHEMGWNKGAS/Option%20B/vote)
+[![](https://api.gh-polls.com/poll/01D4SM0V98AG1FTGHEMGWNKGAS/Option%20C)](https://api.gh-polls.com/poll/01D4SM0V98AG1FTGHEMGWNKGAS/Option%20C/vote)
