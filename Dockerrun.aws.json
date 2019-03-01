@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "levmichael3/udemy_complex-client:24",
+      "image": "levmichael3/udemy_complex-client:45",
       "hostname": "client",
       "memory": 128,
 
@@ -11,21 +11,21 @@
     },
     {
       "name": "server",
-      "image": "levmichael3/udemy_complex-server:24",
+      "image": "levmichael3/udemy_complex-server:45",
       "hostname": "api",
       "memory": 128,
       "essential": false
     },
     {
       "name": "worker",
-      "image": "levmichael3/udemy_complex-worker:24",
+      "image": "levmichael3/udemy_complex-worker:45",
       "hostname": "worker",
       "memory": 128,
       "essential": false
     },
     {
       "name": "nginx",
-      "image": "levmichael3/udemy_complex-nginx:24",
+      "image": "levmichael3/udemy_complex-nginx:45",
       "essential": true,
       "memory": 128,
       "portMappings": [
