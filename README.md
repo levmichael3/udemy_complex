@@ -13,4 +13,6 @@
 - Implement S3 upload
 - Inject dynamic docker tags using Travis
 
+- [DUMMY]
+
 [Setting up a workflow with Docker, GitHub, Travis and AWS](https://medium.com/@mlbors/setting-up-a-workflow-with-docker-github-travis-and-aws-b0963686cc3c)
