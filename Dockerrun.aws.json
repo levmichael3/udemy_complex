@@ -5,36 +5,36 @@
       "name": "client",
       "image": "levmichael3/udemy_complex-client:45",
       "hostname": "client",
-      "essential": false,
-      "memory": 128
+      "memory": 128,
+
+      "essential": false
     },
     {
       "name": "server",
-      "image": "levmichael3/udemy_complex-server",
+      "image": "levmichael3/udemy_complex-server:45",
       "hostname": "api",
-      "essential": false,
-      "memory": 128
+      "memory": 128,
+      "essential": false
     },
     {
       "name": "worker",
-      "image": "levmichael3/udemy_complex-worker",
+      "image": "levmichael3/udemy_complex-worker:45",
       "hostname": "worker",
-      "essential": false,
-      "memory": 128
+      "memory": 128,
+      "essential": false
     },
     {
       "name": "nginx",
-      "image": "levmichael3/udemy_complex-nginx",
-      "hostname": "nginx",
+      "image": "levmichael3/udemy_complex-nginx:45",
       "essential": true,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
           "containerPort": 80
         }
       ],
-      "links": ["client", "server"],
-      "memory": 128
+      "links": ["client", "server"]
     }
   ]
 }
